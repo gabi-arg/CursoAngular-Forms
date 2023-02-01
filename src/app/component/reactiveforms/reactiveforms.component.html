@@ -1,0 +1,30 @@
+
+<div class="container">
+  <h3>CONTACT ME</h3>
+<form class="form-container" [formGroup]="formsLogin" (ngSubmit)="login()">
+  <div class="mb-3">
+    <label for="exampleInputName" class="form-label">Name</label>
+    <input type="name" class="form-control" id="exampleInputName" formControlName = 'name'>
+    <div *ngIf="formsLogin.controls['name'].touched && formsLogin.controls['name'].errors?.['required']">Please! Put your Name</div>
+    <div *ngIf="formsLogin.controls['name'].touched && formsLogin.controls['name'].valid">Correct!</div>
+    </div>
+
+  <div class="mb-3">
+    <label for="exampleInputEmail" class="form-label" >Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail" formControlName = 'email'>
+    <div *ngIf="formsLogin.controls['email'].touched && formsLogin.controls['email'].errors?.['pattern']">Insert a correct email format.</div>
+    <div *ngIf="formsLogin.controls['email'].touched && formsLogin.controls['email'].valid ">Correct!</div>
+    </div>
+
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Insert message</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"  formControlName= 'message'></textarea>
+    <div *ngIf="formsLogin.controls['message'].touched && formsLogin.controls['message'].errors?.['required']">Please! Insert message.</div>
+
+  </div>
+
+
+  <button type="submit" class="btn btn-success "  [disabled]="formsLogin.invalid">Submit</button>
+</form>
+</div>
+
